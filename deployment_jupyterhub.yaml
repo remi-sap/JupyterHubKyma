@@ -36,6 +36,8 @@ spec:
                 chmod -R 2775 /home/mlteam && 
                 apt -y update &&
                 apt-get -y install git  &&
+                (curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash ) &&
+                . ~/.nvm/nvm.sh && nvm install v12.18.2 && nvm use v12.18.2 &&
                 pip install --upgrade notebook jupyterlab jupyterlab-git hana-ml oauthenticator &&
                 jupyterhub --generate-config &&
                 echo "#c.Authenticator.admin_users = {'mlteam'}"  >>  jupyterhub_config.py   &&
